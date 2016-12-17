@@ -1,0 +1,16 @@
+<preference-headers xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- These settings headers are only used on tablets. -->
+
+    <header
+        android:fragment="pl.edu.pwr.wiz.wzorlaboratorium4.SettingsActivity$GeneralPreferenceFragment"
+        android:icon="@drawable/ic_general_options"
+        android:title="@string/pref_header_general" />
+
+    <header
+        android:fragment="pl.edu.pwr.wiz.wzorlaboratorium4.SettingsActivity$FacebookPreferenceFragment"
+        android:icon="@drawable/ic_facebook"
+        android:title="@string/pref_header_facebook" />
+
+    <!-- @TODO Dodać nowy header do obsługi Twittera. Należy również stworzyć dla niego odpowiedni plik pref_twitter.xml -->
+</preference-headers>

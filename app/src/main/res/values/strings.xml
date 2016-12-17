@@ -1,0 +1,41 @@
+<resources>
+    <string name="app_name">Laboratorium4</string>
+    <string name="action_settings">Ustawienia</string>
+    <string name="welcome">Witaj w aplikacji 4.</string>
+    <string name="title_activity_settings">Ustawienia</string>
+
+    <string name="btn_reset">Resetuj ustawienia</string>
+    <string name="potwierdzenie">Czy napewno zresetować ustawienia?</string>
+
+    <!-- Strings related to Settings -->
+    <!-- Example General settings -->
+    <string name="pref_header_general">Ogólne</string>
+
+    <string name="pref_title_recommendations">Rekomendacje</string>
+    <string name="pref_description_recommendations">Czy wyświetlać rekomendacje na bazie Twojej historii
+    </string>
+
+    <string name="pref_title_display_name">Imię i nazwisko</string>
+    <string name="pref_default_display_name">Jan Kowalski</string>
+
+    <string name="pref_title_add_friends_to_messages">Dodawaj znajomych</string>
+    <string-array name="pref_friends_list_titles">
+        <item>Zawsze</item>
+        <item>Gdy to możliwe</item>
+        <item>Nigdy</item>
+    </string-array>
+    <string-array name="pref_friends_list_values">
+        <item>1</item>
+        <item>0</item>
+        <item>-1</item>
+    </string-array>
+
+    <!-- Example Facebook settings -->
+    <string name="pref_header_facebook">Facebook</string>
+
+    <string name="pref_fb_on">Włącz FB</string>
+    <string name="pref_fb_login">Twój login FB</string>
+    <string name="pref_fb_pass">Twoje hasło FB</string>
+
+    <!-- @TODO Dodać teksty istotne do obsługi Twittera -->
+</resources>

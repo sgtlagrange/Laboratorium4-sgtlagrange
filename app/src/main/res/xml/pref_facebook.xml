@@ -1,0 +1,31 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- A 'parent' preference, which enables/disables child preferences (below)
+         when checked/unchecked. -->
+    <SwitchPreference
+        android:defaultValue="false"
+        android:key="facebook_on"
+        android:title="@string/pref_fb_on" />
+
+    <EditTextPreference
+        android:capitalize="words"
+        android:dependency="facebook_on"
+        android:defaultValue=""
+        android:inputType="textEmailAddress"
+        android:key="facebook_login"
+        android:maxLines="1"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="@string/pref_fb_login" />
+
+    <EditTextPreference
+        android:capitalize="words"
+        android:dependency="facebook_on"
+        android:defaultValue=""
+        android:inputType="textPassword"
+        android:key="facebook_pass"
+        android:maxLines="1"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="@string/pref_fb_pass" />
+</PreferenceScreen>
