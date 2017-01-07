@@ -4,28 +4,41 @@
          when checked/unchecked. -->
     <SwitchPreference
         android:defaultValue="false"
-        android:key="FB_on"
-        android:title="@string/pref_fb_on" />
+        android:key="twitter_on"
+        android:title="@string/pref_twitter_on" />
 
     <EditTextPreference
         android:capitalize="words"
-        android:dependency="facebook_on"
+        android:dependency="twitter_on"
         android:defaultValue=""
         android:inputType="textEmailAddress"
-        android:key="facebook_login"
+        android:key="twitter_login"
         android:maxLines="1"
         android:selectAllOnFocus="true"
         android:singleLine="true"
-        android:title="@string/pref_fb_login" />
+        android:title="@string/pref_twitter_login" />
 
     <EditTextPreference
         android:capitalize="words"
-        android:dependency="facebook_on"
+        android:dependency="twitter_on"
         android:defaultValue=""
         android:inputType="textPassword"
-        android:key="facebook_pass"
+        android:key="twitter_pass"
         android:maxLines="1"
         android:selectAllOnFocus="true"
         android:singleLine="true"
-        android:title="@string/pref_fb_pass" />
+        android:title="@string/pref_twitter_pass" />
+
+    <EditTextPreference
+        android:capitalize="words"
+        android:dependency="twitter_on"
+        android:defaultValue=""
+        android:inputType="textUri"
+        android:key="twitter_profile"
+        android:maxLines="1"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="@string/pref_twitter_profile" />
+
+
 </PreferenceScreen>

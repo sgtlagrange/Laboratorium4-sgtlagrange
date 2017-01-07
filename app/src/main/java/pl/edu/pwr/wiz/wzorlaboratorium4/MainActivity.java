@@ -1,5 +1,6 @@
 package pl.edu.pwr.wiz.wzorlaboratorium4;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -9,10 +10,13 @@ import android.preference.PreferenceManager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.Html;
+import android.text.method.LinkMovementMethod;
 import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -44,15 +48,28 @@ public class MainActivity extends AppCompatActivity {
                         .setPositiveButton("Tak",new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog,int id) {
                                 // Kliknięto tak
-                                // @TODO Reset ustawień
+                                pref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                                Editor editor = pref.edit();
+                                editor.clear();
+                                editor.apply();
 
-                                // @TODO Wyświetlenie Toast z informacją
+                                Context context = getApplicationContext();
+                                CharSequence text = "Ustawienia zostały wyzerowane!";
+                                int duration = Toast.LENGTH_SHORT;
+
+                                Toast toast = Toast.makeText(context, text, duration);
+                                toast.show();
                             }
                         })
                         .setNegativeButton("Nie",new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog,int id) {
                                 // Kliknięto nie
-                                // @TODO Wyświetlenie Toast z informacją
+                                Context context = getApplicationContext();
+                                CharSequence text = "Ustawienia nie zostały wyzerowane!";
+                                int duration = Toast.LENGTH_SHORT;
+
+                                Toast toast = Toast.makeText(context, text, duration);
+                                toast.show();
                                 dialog.cancel();
                             }
                         });
@@ -75,12 +92,24 @@ public class MainActivity extends AppCompatActivity {
         /* Pobieramy ustawienia i wyswietlamy login FB, jesli jest ustawiony */
         pref = PreferenceManager.getDefaultSharedPreferences(this);
         Boolean fb_on = pref.getBoolean("facebook_on", false);
+        Boolean twitter_on = pref.getBoolean("twitter_on", false);
         TextView textView = (TextView) findViewById(R.id.dane_fb);
+        TextView twitterView = (TextView) findViewById(R.id.dane_twitter);
 
         if(fb_on) {
             textView.setText("Twój login FB to: " + pref.getString("facebook_login", "brak"));
         } else {
             textView.setText("FB wyłączone");
+        }
+
+        if(twitter_on) {
+            twitterView.setText("Twój link do profilu Twitter to: " + pref.getString("twitter_profile", "brak"));
+            twitterView.setMovementMethod(LinkMovementMethod.getInstance());
+            twitterView.setClickable(true);
+            String text = "<a href='"+twitterView.getText()+"'>"+  pref.getString("twitter_profile", "brak")+"</a>";
+            twitterView.setText(Html.fromHtml(text));
+        } else {
+            twitterView.setText("Twitter wyłączony");
         }
 
         // @TODO Wyświetlanie przycisku kierującego do profilu Twitter, o ile taki został ustawiony

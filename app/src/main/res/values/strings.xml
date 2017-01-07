@@ -37,5 +37,11 @@
     <string name="pref_fb_login">Twój login FB</string>
     <string name="pref_fb_pass">Twoje hasło FB</string>
 
-    <!-- @TODO Dodać teksty istotne do obsługi Twittera -->
+    <!-- Example Twotter settings -->
+    <string name="pref_header_twitter">Twitter</string>
+
+    <string name="pref_twitter_on">Włącz Twittera</string>
+    <string name="pref_twitter_login">Twój login do Twittera</string>
+    <string name="pref_twitter_pass">Twoje hasło do Twittera</string>
+    <string name="pref_twitter_profile">Twój link do Twittera</string>
 </resources>

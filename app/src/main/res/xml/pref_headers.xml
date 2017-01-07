@@ -12,5 +12,8 @@
         android:icon="@drawable/ic_facebook"
         android:title="@string/pref_header_facebook" />
 
-    <!-- @TODO Dodać nowy header do obsługi Twittera. Należy również stworzyć dla niego odpowiedni plik pref_twitter.xml -->
+    <header
+        android:fragment="pl.edu.pwr.wiz.wzorlaboratorium4.SettingsActivity$TwitterPreferenceFragment"
+        android:icon="@drawable/ic_twitter"
+        android:title="@string/pref_header_twitter" />
 </preference-headers>

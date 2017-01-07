@@ -128,10 +128,10 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
      * Powinna zwrócić true, jeśli mamy doczynienia z fragmentem należącym do naszych ustawień
      */
     protected boolean isValidFragment(String fragmentName) {
-        // @TODO Dodać walidację dla nowego fragmentu związanego z Twitterem
 
         return PreferenceFragment.class.getName().equals(fragmentName)
                 || GeneralPreferenceFragment.class.getName().equals(fragmentName)
+                || TwitterPreferenceFragment.class.getName().equals(fragmentName)
                 || FacebookPreferenceFragment.class.getName().equals(fragmentName);
     }
 
@@ -189,7 +189,32 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
         }
     }
 
-    // @TODO Nowy fragment do obsługi Twittera
+    /* Fragment wyświetlający ustawienia Twittera
+    */
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
+    public static class TwitterPreferenceFragment extends PreferenceFragment {
+        @Override
+        public void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            addPreferencesFromResource(R.xml.pref_twitter);
+            setHasOptionsMenu(true);
+
+            // Podpinamy EditTextPreference pod nasz listener
+            bindPreferenceSummaryToValue(findPreference("twitter_login"));
+            bindPreferenceSummaryToValue(findPreference("twitter_pass"));
+            bindPreferenceSummaryToValue(findPreference("twitter_profile"));
+        }
+
+        @Override
+        public boolean onOptionsItemSelected(MenuItem item) {
+            int id = item.getItemId();
+            if (id == android.R.id.home) {
+                startActivity(new Intent(getActivity(), SettingsActivity.class));
+                return true;
+            }
+            return super.onOptionsItemSelected(item);
+        }
+    }
 
 
     @Override
